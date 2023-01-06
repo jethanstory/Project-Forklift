@@ -47,15 +47,15 @@ public class PickupBox : MonoBehaviour
     void OnMouseDown() 
     {
     
-    if (!trailerTrigger)
-    {
+    // if (!trailerTrigger)
+    // {
         if (distance <= 1f)
         {
             isHolding = true;
             item.GetComponent<Rigidbody> ().useGravity = false;
             item.GetComponent<Rigidbody> ().detectCollisions = true;
         }
-    }
+    // }
     }
     void OnMouseUp() 
     {
