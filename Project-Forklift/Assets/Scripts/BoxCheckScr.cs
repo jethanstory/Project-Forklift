@@ -5,6 +5,8 @@ using UnityEngine;
 public class BoxCheckScr : MonoBehaviour
 {
     public int boxNumber;
+    public bool truckFilled;
+    public int maxLimit;
     
 
     // Start is called before the first frame update
@@ -16,7 +18,10 @@ public class BoxCheckScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (boxNumber > maxLimit)
+        {
+            truckFilled = true;
+        }
     }
 
 
