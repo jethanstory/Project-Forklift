@@ -12,6 +12,7 @@ public class PickupBox : MonoBehaviour
     public GameObject item;
     public GameObject tempParent;
     public bool isHolding = false;
+    public bool trailerTrigger = false;
 
 
 
@@ -45,16 +46,32 @@ public class PickupBox : MonoBehaviour
 
     void OnMouseDown() 
     {
-    if (distance <= 1f)
+    
+    if (!trailerTrigger)
     {
-        isHolding = true;
-        item.GetComponent<Rigidbody> ().useGravity = false;
-        item.GetComponent<Rigidbody> ().detectCollisions = true;
+        if (distance <= 1f)
+        {
+            isHolding = true;
+            item.GetComponent<Rigidbody> ().useGravity = false;
+            item.GetComponent<Rigidbody> ().detectCollisions = true;
+        }
     }
     }
     void OnMouseUp() 
     {
         isHolding = false;
+    }
+
+    private void OnTriggerEnter(Collider other) // to see when the player enters the collider
+    {
+        if(other.gameObject.tag == "BoxCheck") //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            if (isHolding)
+            {
+                trailerTrigger = true;
+            }
+
+        }
     }
         
 }
@@ -70,3 +87,4 @@ public class PickupBox : MonoBehaviour
         
     // }
 //}
+

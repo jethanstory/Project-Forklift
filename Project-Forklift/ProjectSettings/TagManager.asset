@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Ground
+  - Box
+  - BoxCheck
   layers:
   - Default
   - TransparentFX
